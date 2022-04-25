@@ -37,13 +37,22 @@ class EmailAnalyticsService
 		email_data.map { |e| e[:"#{@key}"]}.sum / email_data.length
 	end
 
+	def tendancy(email_data)
+		grouped = email_data.group_by { |email| email[:send_at].month }
+		results = grouped.map { |key, data| [key, average(data)] }.sort_by { |i| i[1] }
+		results
+	end
+
 	def print_results(average_rate, median_rate)
 		 [{ 
 		 	emails_analisados: "#{@email_data.length}",
 		 	media: "#{average_rate}",
 		 	mediana: "#{median_rate}",
 		 	:"melhor_#{@key}" => "#{@email_data.last}",
-		 	:"pior_#{@key}" => "#{@email_data.first}"
+		 	:"pior_#{@key}" => "#{@email_data.first}",
+		 	melhor_mes: tendancy(@email_data).last,
+		 	pior_mes: tendancy(@email_data).first,
+		 	tendancy: tendancy(@email_data)
 		 }]
 	end
 end

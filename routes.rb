@@ -1,8 +1,4 @@
 require 'sinatra'
-require 'uri'
-require 'net/http'
-require 'openssl'
-require 'date'
 require './email_analytics_service.rb'
 
 get '/' do
