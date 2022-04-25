@@ -4,7 +4,7 @@ require './email_api_client.rb'
 class EmailAnalyticsService
 	def initialize(start_date, end_date)
 		@key = 'email_clicked_rate'
-		@email_data = EmailApiClient.new.mock_data
+		@email_data = EmailApiClient.new(start_date, end_date).generate_mock
 	end
 
 	def index
@@ -39,7 +39,7 @@ class EmailAnalyticsService
 
 	def tendancy(email_data)
 		grouped = email_data.group_by { |email| email[:send_at].month }
-		results = grouped.map { |key, data| [key, average(data)] }.sort_by { |i| i[1] }
+		results = grouped.map { |key, data| [key, average(data)] }
 		results
 	end
 
@@ -48,8 +48,8 @@ class EmailAnalyticsService
 		 	emails_analisados: "#{@email_data.length}",
 		 	media: "#{average_rate}",
 		 	mediana: "#{median_rate}",
-		 	:"melhor_#{@key}" => "#{@email_data.last}",
-		 	:"pior_#{@key}" => "#{@email_data.first}",
+		 	:"melhor_#{@key}" => @email_data.last,
+		 	:"pior_#{@key}" => @email_data.first,
 		 	melhor_mes: tendancy(@email_data).last,
 		 	pior_mes: tendancy(@email_data).first,
 		 	tendancy: tendancy(@email_data)

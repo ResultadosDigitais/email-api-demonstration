@@ -1,1 +1,175 @@
-<%= text %>	
+<head>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body class="text-center">
+	<div class="container">
+		<h1>Analise - Melhor taxa de Clicks</h1>
+		<table class="table table-bordered">
+			<tr>
+				<th>Emails Analisados</th>
+				<th>Taxa Média</th>
+				<th>Taxa Mediana</th>			
+			</tr>
+			<tr>
+				<td><%= text[0][:emails_analisados] %></td>
+				<td><%= text[0][:media] %></td>
+				<td><%= text[0][:mediana] %></td>
+			</tr>
+		</table>
+
+		<div class="container">
+			<div class="card">
+				<h3 class="card-title">Melhor Email</h3>
+	    		<table class="table table-bordered">
+					<tr>
+						<th>Name</th>
+						<th>Enviado em</th>
+						<th>Contacts Count</th>
+						<th>Delivered</th>			
+						<th>Dropped</th>
+						<th>Bounced</th>
+						<th>Opened</th>
+						<th>Clicked</th>
+						<th>Unsubscribed</th>
+						<th>Spam Reported</th>
+						<th>Delivered Rate</th>
+						<th>Opened Rate</th>
+						<th>Clicked Rate</th>
+						<th>Spam Reported Rate</th>
+					</tr>
+					<tr>
+						<td><%= text[0][:melhor_email_clicked_rate][:campaign_name] %></td>
+						<td><%= text[0][:melhor_email_clicked_rate][:send_at] %></td>
+						<td><%= text[0][:melhor_email_clicked_rate][:contacts_count] %></td>
+						<td><%= text[0][:melhor_email_clicked_rate][:email_delivered_count] %></td>	
+						<td><%= text[0][:melhor_email_clicked_rate][:email_dropped_count] %></td>
+						<td><%= text[0][:melhor_email_clicked_rate][:email_bounced_unique_count] %></td>
+						<td><%= text[0][:melhor_email_clicked_rate][:email_opened_unique_count] %></td>
+						<td><%= text[0][:melhor_email_clicked_rate][:email_clicked_unique_count] %></td>
+						<td><%= text[0][:melhor_email_clicked_rate][:email_unsubscribed_count] %></td>
+						<td><%= text[0][:melhor_email_clicked_rate][:email_spam_reported_count] %></td>
+						<td><%= text[0][:melhor_email_clicked_rate][:email_delivered_rate].round(2) %></td>
+						<td><%= text[0][:melhor_email_clicked_rate][:email_opened_rate].round(2) %></td>
+						<td><%= text[0][:melhor_email_clicked_rate][:email_clicked_rate].round(2) %></td>
+						<td><%= text[0][:melhor_email_clicked_rate][:email_spam_reported_rate].round(2) %></td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="card">
+				<h3 class="card-title">Pior Email</h3>
+	    		<table class="table table-bordered">
+					<tr>
+						<th>Name</th>
+						<th>Enviado em</th>
+						<th>Contacts Count</th>
+						<th>Delivered</th>			
+						<th>Dropped</th>
+						<th>Bounced</th>
+						<th>Opened</th>
+						<th>Clicked</th>
+						<th>Unsubscribed</th>
+						<th>Spam Reported</th>
+						<th>Delivered Rate</th>
+						<th>Opened Rate</th>
+						<th>Clicked Rate</th>
+						<th>Spam Reported Rate</th>
+					</tr>
+					<tr>
+						<td><%= text[0][:pior_email_clicked_rate][:campaign_name] %></td>
+						<td><%= text[0][:pior_email_clicked_rate][:send_at] %></td>
+						<td><%= text[0][:pior_email_clicked_rate][:contacts_count] %></td>
+						<td><%= text[0][:pior_email_clicked_rate][:email_delivered_count] %></td>	
+						<td><%= text[0][:pior_email_clicked_rate][:email_dropped_count] %></td>
+						<td><%= text[0][:pior_email_clicked_rate][:email_bounced_unique_count] %></td>
+						<td><%= text[0][:pior_email_clicked_rate][:email_opened_unique_count] %></td>
+						<td><%= text[0][:pior_email_clicked_rate][:email_clicked_unique_count] %></td>
+						<td><%= text[0][:pior_email_clicked_rate][:email_unsubscribed_count] %></td>
+						<td><%= text[0][:pior_email_clicked_rate][:email_spam_reported_count] %></td>
+						<td><%= text[0][:pior_email_clicked_rate][:email_delivered_rate].round(2) %></td>
+						<td><%= text[0][:pior_email_clicked_rate][:email_opened_rate].round(2) %></td>
+						<td><%= text[0][:pior_email_clicked_rate][:email_clicked_rate].round(2) %></td>
+						<td><%= text[0][:pior_email_clicked_rate][:email_spam_reported_rate].round(2) %></td>
+					</tr>
+				</table>
+			</div>		
+		</div>
+
+		<div class="container">
+			<div class="card">
+				<h3 class="card-title">Melhor Mês</h3>
+				<table class="table table-bordered">
+					<tr>
+						<th>Mês</th>
+						<th>Taxa média</th>
+					</tr>
+					<tr>
+						<td>
+							<%= Date::MONTHNAMES[text[0][:melhor_mes][0]] %>
+						</td>
+						<td>
+							<%= text[0][:melhor_mes][1].round(2) %>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="card">
+				<h3 class="card-title">Pior Mês</h3>
+				<table class="table table-bordered">
+					<tr>
+						<th>Mês</th>
+						<th>Taxa média</th>
+					</tr>
+					<tr>
+						<td>
+							<%= Date::MONTHNAMES[text[0][:pior_mes][0]] %>
+						</td>
+						<td>
+							<%= text[0][:pior_mes][1].round(2) %>
+						</td>
+					</tr>
+				</table>
+			</div>		
+		</div>
+
+		<div class="container-fluid">
+			<canvas id="myChart" style="width:100%"></canvas>
+			<% @xvalues = [] %>
+			<% @yvalues = [] %>
+			<% text[0][:tendancy].sort_by { |i| i[0] }.each do |month| %>
+				<% @xvalues << Date::MONTHNAMES[month[0]] %>
+				<% @yvalues << month[1].round(2) %>
+			<% end %>
+
+			<script>
+				var xValues = <%= @xvalues %>;
+				var yValues = <%= @yvalues %>;
+				var barColors = ["red", "green","blue","orange","brown", "purple", "black", "gray", "yellow", "pink", "cyan", "magenta"];
+
+				new Chart("myChart", {
+				  type: "bar",
+				  data: {
+				    labels: xValues,
+				    datasets: [{
+				      backgroundColor: barColors,
+				      data: yValues
+				    }]
+				  },
+				  options: {
+				    legend: {display: false},
+				    title: {
+				      display: true,
+				      text: "Meses analisados"
+				    }
+				  }
+				});
+			</script>
+		</div>
+
+	</div>	
+
+	<script type="text/javascript", src="/js/bootstrap.min.js"></script>
+</body>
