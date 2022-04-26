@@ -2,11 +2,11 @@ require 'sinatra'
 require './email_analytics_service.rb'
 
 get '/' do
-  text = EmailAnalyticsService.new.index
-  erb :index, :locals => { :text => text }
+  erb :index
 end
 
-get '/get_data' do
+post '/get_data' do
+  p params
   start_date = params["start_date"]
   end_date = params["end_date"]
   text = EmailAnalyticsService.new(start_date, end_date).run
