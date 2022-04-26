@@ -5,7 +5,7 @@
 </head>
 <body class="text-center">
 	<div class="container">
-		<h1>Analise - Melhor taxa de Clicks</h1>
+		<h1>Analise por Taca de Clicks</h1>
 		<table class="table table-bordered">
 			<tr>
 				<th>Emails Analisados</th>
@@ -21,7 +21,7 @@
 
 		<div class="container">
 			<div class="card">
-				<h3 class="card-title">Melhor Email</h3>
+				<h3 class="card-title">Email com melhor taxa média</h3>
 	    		<table class="table table-bordered">
 					<tr>
 						<th>Name</th>
@@ -59,7 +59,7 @@
 			</div>
 
 			<div class="card">
-				<h3 class="card-title">Pior Email</h3>
+				<h3 class="card-title">Email com pior taxa média</h3>
 	    		<table class="table table-bordered">
 					<tr>
 						<th>Name</th>
@@ -99,7 +99,7 @@
 
 		<div class="container">
 			<div class="card">
-				<h3 class="card-title">Melhor Mês</h3>
+				<h3 class="card-title">Mês com melhor taxa média</h3>
 				<table class="table table-bordered">
 					<tr>
 						<th>Mês</th>
@@ -117,7 +117,7 @@
 			</div>
 
 			<div class="card">
-				<h3 class="card-title">Pior Mês</h3>
+				<h3 class="card-title">Mês com pior taxa média</h3>
 				<table class="table table-bordered">
 					<tr>
 						<th>Mês</th>
@@ -136,6 +136,7 @@
 		</div>
 
 		<div class="container-fluid">
+			<h3>Taxa média de clicks por mês</h3>
 			<canvas id="myChart" style="width:100%"></canvas>
 			<% @xvalues = [] %>
 			<% @yvalues = [] %>
