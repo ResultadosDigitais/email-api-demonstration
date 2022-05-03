@@ -12,9 +12,8 @@ class RDStationAPIAuthWrapper
   end
 
   def generate_access_token
-  	request = Net::HTTP.post URI('http://www.example.com/api/search'),
+  	resp = Net::HTTP.post URI(@url),
                { "client_id" => @client_id, "client_secret" => @client_secret, "code" => @code }.to_json
-    resp = @http.request
     # CACHE_SERVICE(resp["refresh_token"])
     resp["access_token"]
   end

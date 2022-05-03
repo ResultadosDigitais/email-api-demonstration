@@ -5,9 +5,11 @@
 </head>
 <body class="text-center">
 	<div class="container">
-		<h1>Analise por Taxa de Clicks</h1>
+		<h1>Analise por <%= text[0][:key]%> </h1>
 
 		<button type="submit" class="btn btn-primary" onclick="window.print();return false;">Imprimir</button>
+		<button type="submit" class="btn btn-primary" onclick="history.back();return false;">Nova Analise</button>
+
 
 		<table class="table table-bordered">
 			<tr>
@@ -43,20 +45,20 @@
 						<th>Spam Reported Rate</th>
 					</tr>
 					<tr>
-						<td><%= text[0][:melhor_email_clicked_rate][:campaign_name] %></td>
-						<td><%= text[0][:melhor_email_clicked_rate][:send_at] %></td>
-						<td><%= text[0][:melhor_email_clicked_rate][:contacts_count] %></td>
-						<td><%= text[0][:melhor_email_clicked_rate][:email_delivered_count] %></td>	
-						<td><%= text[0][:melhor_email_clicked_rate][:email_dropped_count] %></td>
-						<td><%= text[0][:melhor_email_clicked_rate][:email_bounced_unique_count] %></td>
-						<td><%= text[0][:melhor_email_clicked_rate][:email_opened_unique_count] %></td>
-						<td><%= text[0][:melhor_email_clicked_rate][:email_clicked_unique_count] %></td>
-						<td><%= text[0][:melhor_email_clicked_rate][:email_unsubscribed_count] %></td>
-						<td><%= text[0][:melhor_email_clicked_rate][:email_spam_reported_count] %></td>
-						<td><%= text[0][:melhor_email_clicked_rate][:email_delivered_rate].round(2) %></td>
-						<td><%= text[0][:melhor_email_clicked_rate][:email_opened_rate].round(2) %></td>
-						<td><%= text[0][:melhor_email_clicked_rate][:email_clicked_rate].round(2) %></td>
-						<td><%= text[0][:melhor_email_clicked_rate][:email_spam_reported_rate].round(2) %></td>
+						<td><%= text[0][:melhor_rate][:campaign_name] %></td>
+						<td><%= text[0][:melhor_rate][:send_at] %></td>
+						<td><%= text[0][:melhor_rate][:contacts_count] %></td>
+						<td><%= text[0][:melhor_rate][:email_delivered_count] %></td>	
+						<td><%= text[0][:melhor_rate][:email_dropped_count] %></td>
+						<td><%= text[0][:melhor_rate][:email_bounced_unique_count] %></td>
+						<td><%= text[0][:melhor_rate][:email_opened_unique_count] %></td>
+						<td><%= text[0][:melhor_rate][:email_clicked_unique_count] %></td>
+						<td><%= text[0][:melhor_rate][:email_unsubscribed_count] %></td>
+						<td><%= text[0][:melhor_rate][:email_spam_reported_count] %></td>
+						<td><%= text[0][:melhor_rate][:email_delivered_rate].round(2) %></td>
+						<td><%= text[0][:melhor_rate][:email_opened_rate].round(2) %></td>
+						<td><%= text[0][:melhor_rate][:email_clicked_rate].round(2) %></td>
+						<td><%= text[0][:melhor_rate][:email_spam_reported_rate].round(2) %></td>
 					</tr>
 				</table>
 			</div>
@@ -68,7 +70,7 @@
 						<th>Name</th>
 						<th>Enviado em</th>
 						<th>Contacts Count</th>
-						<th>Delivered</th>			
+						<th>Delivered</th>	
 						<th>Dropped</th>
 						<th>Bounced</th>
 						<th>Opened</th>
@@ -81,20 +83,20 @@
 						<th>Spam Reported Rate</th>
 					</tr>
 					<tr>
-						<td><%= text[0][:pior_email_clicked_rate][:campaign_name] %></td>
-						<td><%= text[0][:pior_email_clicked_rate][:send_at] %></td>
-						<td><%= text[0][:pior_email_clicked_rate][:contacts_count] %></td>
-						<td><%= text[0][:pior_email_clicked_rate][:email_delivered_count] %></td>	
-						<td><%= text[0][:pior_email_clicked_rate][:email_dropped_count] %></td>
-						<td><%= text[0][:pior_email_clicked_rate][:email_bounced_unique_count] %></td>
-						<td><%= text[0][:pior_email_clicked_rate][:email_opened_unique_count] %></td>
-						<td><%= text[0][:pior_email_clicked_rate][:email_clicked_unique_count] %></td>
-						<td><%= text[0][:pior_email_clicked_rate][:email_unsubscribed_count] %></td>
-						<td><%= text[0][:pior_email_clicked_rate][:email_spam_reported_count] %></td>
-						<td><%= text[0][:pior_email_clicked_rate][:email_delivered_rate].round(2) %></td>
-						<td><%= text[0][:pior_email_clicked_rate][:email_opened_rate].round(2) %></td>
-						<td><%= text[0][:pior_email_clicked_rate][:email_clicked_rate].round(2) %></td>
-						<td><%= text[0][:pior_email_clicked_rate][:email_spam_reported_rate].round(2) %></td>
+						<td><%= text[0][:pior_rate][:campaign_name] %></td>
+						<td><%= text[0][:pior_rate][:send_at] %></td>
+						<td><%= text[0][:pior_rate][:contacts_count] %></td>
+						<td><%= text[0][:pior_rate][:email_delivered_count] %></td>	
+						<td><%= text[0][:pior_rate][:email_dropped_count] %></td>
+						<td><%= text[0][:pior_rate][:email_bounced_unique_count] %></td>
+						<td><%= text[0][:pior_rate][:email_opened_unique_count] %></td>
+						<td><%= text[0][:pior_rate][:email_clicked_unique_count] %></td>
+						<td><%= text[0][:pior_rate][:email_unsubscribed_count] %></td>
+						<td><%= text[0][:pior_rate][:email_spam_reported_count] %></td>
+						<td><%= text[0][:pior_rate][:email_delivered_rate].round(2) %></td>
+						<td><%= text[0][:pior_rate][:email_opened_rate].round(2) %></td>
+						<td><%= text[0][:pior_rate][:email_clicked_rate].round(2) %></td>
+						<td><%= text[0][:pior_rate][:email_spam_reported_rate].round(2) %></td>
 					</tr>
 				</table>
 			</div>		
@@ -139,7 +141,7 @@
 		</div>
 
 		<div class="container-fluid">
-			<h3>Taxa média de clicks por mês</h3>
+			<h3>Taxa média de <%= text[0][:key] %></h3>
 			<canvas id="myChart" style="width:100%"></canvas>
 			<% @xvalues = [] %>
 			<% @yvalues = [] %>

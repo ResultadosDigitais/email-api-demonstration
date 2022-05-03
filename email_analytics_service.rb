@@ -2,13 +2,9 @@ require 'date'
 require './email_api_client.rb'
 
 class EmailAnalyticsService
-	def initialize(start_date, end_date)
-		@key = 'email_clicked_rate'
-		@email_data = EmailApiClient.new(start_date, end_date).generate_mock
-	end
-
-	def index
-		'Hello again'
+	def initialize(start_date, end_date, key)
+		@key = key
+		@email_data = EmailApiClient.new(start_date, end_date).get_data
 	end
 
 	def run
@@ -48,11 +44,12 @@ class EmailAnalyticsService
 		 	emails_analisados: "#{@email_data.length}",
 		 	media: "#{average_rate}",
 		 	mediana: "#{median_rate}",
-		 	:"melhor_#{@key}" => @email_data.last,
-		 	:"pior_#{@key}" => @email_data.first,
+		 	melhor_rate: @email_data.last,
+		 	pior_rate: @email_data.first,
 		 	melhor_mes: tendancy(@email_data).last,
 		 	pior_mes: tendancy(@email_data).first,
-		 	tendancy: tendancy(@email_data)
+		 	tendancy: tendancy(@email_data),
+		 	key: @key
 		 }]
 	end
 end

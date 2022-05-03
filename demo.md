@@ -10,7 +10,7 @@ https://developers.rdstation.com/reference/get_platform-analytics-emails
 	require 'uri'
 	require 'net/http'
 	require 'openssl'
-
+	
 	url = URI("https://api.rd.services/platform/analytics/emails?start_date=2022-01-01&end_date=2022-04-01")
 
 	http = Net::HTTP.new(url.host, url.port)
@@ -27,8 +27,7 @@ https://developers.rdstation.com/reference/get_platform-analytics-emails
 
 - Qual o formato da response que vou receber?
 JSON
-```yaml #usamos aqui a tag 'yaml' apenas devido a formatação de texto do Markdown
-	{
+```yaml #usamos aqui a tag 'yaml' apenas devido a formatação de texto do Markdown	{
 		account_id: integer,
 		query_date:
 			{
