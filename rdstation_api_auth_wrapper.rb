@@ -6,16 +6,17 @@ class RDStationAPIAuthWrapper
   	@client_id = client_id
   	@client_secret = client_secret
   	@code = code
-  	@url = URI("https://api.rd.services/auth/token")
+  	@url = URI("https://api.rd.services/auth/token?client_id=#{@client_id}&client_secret=#{@client_secret}&code=#{@code}")
 		@http = Net::HTTP.new(@url.host, @url.port)
 		@http.use_ssl = true
   end
 
   def generate_access_token
-  	resp = Net::HTTP.post URI(@url),
-               { "client_id" => @client_id, "client_secret" => @client_secret, "code" => @code }.to_json
+  	req = Net::HTTP::Post.new(@url)
+    resp = @http.request(req)
+    data = JSON.parse(resp.body)
     # CACHE_SERVICE(resp["refresh_token"])
-    resp["access_token"]
+    data["access_token"]
   end
 
   def refresh_access_token
