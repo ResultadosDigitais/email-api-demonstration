@@ -8,7 +8,6 @@ class EmailAnalyticsService
 	end
 
 	def run
-		p @email_data
 		if @email_data.length == 1
 			average_rate = @email_data.first["#{@key}"]
 			median_rate = @email_data.first["#{@key}"]
@@ -35,10 +34,9 @@ class EmailAnalyticsService
 	end
 
 	def tendancy(email_data)
-		p email_data
 		grouped = email_data.group_by { |email| Date.parse(email["send_at"]).month }
 		results = grouped.map { |key, data| [key, average(data)] }
-		results
+		results.sort_by { |r| r[1] }
 	end
 
 	def print_results(average_rate, median_rate)

@@ -3,7 +3,6 @@ require 'openssl'
 require 'date'
 require 'json'
 require 'dotenv/load'
-require './rdstation_api_auth_wrapper.rb'
 
 class EmailApiClient
 	def initialize(start_date, end_date)
@@ -16,13 +15,11 @@ class EmailApiClient
   end
 
 	def get_data
-    p @access_token
 		request = Net::HTTP::Get.new(@url)
 		request["Accept"] = 'application/json'
 		request["Authorization"] = "Bearer #{@access_token}"
 		response = @http.request(request)
     data = JSON.parse(response.body)
-    p data
     data["emails"]
 	end
 end
