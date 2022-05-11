@@ -4,10 +4,6 @@ Após clonar o repositório, para inicializar a aplicação, navegue pelo termin
 na url: http://localhost:4567/
 
 Há apenas duas rotas:
-<<<<<<< HEAD
-/
-/get_data
-
 - /
 ![image](https://user-images.githubusercontent.com/68977332/165378081-38d92803-06a3-4317-b45e-9f44c5cb1168.png)
 
@@ -17,3 +13,5 @@ Há apenas duas rotas:
 
 
 pra ver a página completa -> [get_data.pdf](https://github.com/ResultadosDigitais/email-api-demonstration/files/8566300/get_data.pdf)
+
+[Links e recursos da demonstração](https://github.com/ResultadosDigitais/email-api-demonstration/blob/main/demo.md)
