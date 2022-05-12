@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: email-api-demonstration
+  description: Demonstração de uso de API de email do RD Station.
+  annotations:
+    github.com/project-slug: ResultadosDigitais/email-api-demonstration
+  labels:
+    rdstation.com/type: "external"
+    language: "ruby"
+spec:
+  type: service
+  lifecycle: production
+  owner: mushin
